@@ -22,7 +22,6 @@ _This app is designed to allows coordinators of programming events (hack-a-thons
 | 8. Each team member is assigned a unique ID; can be individually accessed | Joe | /teammember/1 |
 | 9. A list is created that stores all members within a team. | Joe, Ben | Joe, Ben |
 
-
 ## Setup/Installation Requirements
 
 * _Clone the repository_

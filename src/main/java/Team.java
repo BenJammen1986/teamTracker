@@ -2,30 +2,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Team {
-  private String mName;
-  private static List<Team> instances = new ArrayList<Team>();
-  private int mId;
+  private String mTeamName;
+  private static List<Team> teamInstances = new ArrayList<Team>();
+  private int mTeamId;
+  private List<Member> mTeamMembers;
 
 
   public Team(String name) {
-    mName = name;
-    instances.add(this);
-    mId = instances.size();
+    mTeamName = name;
+    teamInstances.add(this);
+    mTeamId = teamInstances.size();
+    mTeamMembers = new ArrayList<Member>();
   }
 
   public String getTeamName() {
-    return mName;
+    return mTeamName;
   }
 
   public static void clearTeamArray() {
-    instances.clear();
+    teamInstances.clear();
   }
 
   public static List<Team> getAllTeams() {
-    return instances;
+    return teamInstances;
   }
 
   public int getTeamId() {
-    return mId;
+    return mTeamId;
   }
+
+  public static Team findTeamIndex(int id) {
+   return teamInstances.get(id - 1);
+  }
+
+  public List<Member> getTeamMembers()  {
+    return mTeamMembers;
+  }
+
+  public void addNewMember(Member member)  {
+    mTeamMembers.add(member);
+  }
+
+
+
+
 }

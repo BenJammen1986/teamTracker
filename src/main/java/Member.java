@@ -3,30 +3,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Member {
-  private String mName;
-  private static List<Member> instances = new ArrayList<Member>();
-  private int mId;
+  private String mMemberName;
+  private static List<Member> memberInstances = new ArrayList<Member>();
+  private int mMemberId;
 
   public Member(String name) {
-    mName = name;
-    instances.add(this);
-    mId = instances.size();
+    mMemberName = name;
+    memberInstances.add(this);
+    mMemberId = memberInstances.size();
 
   }
 
   public String getMemberName() {
-    return mName;
+    return mMemberName;
   }
 
   public static void clearMemberArray() {
-    instances.clear();
+    memberInstances.clear();
   }
 
   public static List<Member> getAllMembers() {
-    return instances;
+    return memberInstances;
   }
 
   public int getMemberId() {
-    return mId;
+    return mMemberId;
+  }
+
+  public static Member findMemberIndex(int id) {
+    return memberInstances.get(id - 1);
   }
 }
