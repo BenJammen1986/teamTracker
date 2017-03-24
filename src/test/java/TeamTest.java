@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class TeamTest {
 
   @After
-  public void tearDown() {
+  public void teamTearDown() {
     Team.clearTeamArray();
   }
 
@@ -34,6 +34,6 @@ public class TeamTest {
   public void newTeam_assignedIdNumberCorrectly() {
     Team newTeam = new Team("Home");
     Team newTeam2 = new Team("Work");
-    assertEquals(newTeam.getId(), 1);
+    assertEquals(newTeam.getTeamId(), 1);
   }
 }

@@ -18,14 +18,15 @@ _This app is designed to allows coordinators of programming events (hack-a-thons
 | 4. Each team is assigned a unique ID; can be individually accessed | Team Buzzsaw | /team/1 |
 | 5. A team member can be created. | Joe | Joe |
 | 6. A team member's name is saved correctly. | Joe | Joe |
-| 7. A list is created that will store all members to the team. | Joe, Ben | Joe, Ben |
+| 7. A list is created that will store all members ever created. | Joe, Ben | Joe, Ben |
 | 8. Each team member is assigned a unique ID; can be individually accessed | Joe | /teammember/1 |
+| 9. A list is created that stores all members within a team. | Joe, Ben | Joe, Ben |
 
 
 ## Setup/Installation Requirements
 
 * _Clone the repository_
-* _Open your terminal interface (command line)
+* _Open your terminal interface (command line)_
 * _Run the command 'gradle run'_
 * _Open browser and go to localhost:4567_
 

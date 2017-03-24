@@ -25,7 +25,7 @@ public class Team {
     return instances;
   }
 
-  public int getId() {
+  public int getTeamId() {
     return mId;
   }
 }
