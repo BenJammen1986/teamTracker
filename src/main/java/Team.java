@@ -9,7 +9,7 @@ public class Team {
     mName = name;
   }
 
-  public String GetName() {
+  public String getName() {
     return mName;
   }
 }
