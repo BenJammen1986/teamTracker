@@ -3,13 +3,23 @@ import java.util.List;
 
 public class Team {
   private String mName;
+  private static List<Team> instances = new ArrayList<Team>();
 
 
   public Team(String name) {
     mName = name;
+    instances.add(this);
   }
 
-  public String getName() {
+  public String getTeamName() {
     return mName;
+  }
+
+  public static void clearTeamArray() {
+    instances.clear();
+  }
+
+  public static List<Team> getAllTeams() {
+    return instances;
   }
 }

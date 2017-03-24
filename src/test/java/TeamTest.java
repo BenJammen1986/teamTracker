@@ -1,7 +1,16 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 
+
+
+
 public class TeamTest {
+
+  @After
+  public void tearDown() {
+    Team.clearTeamArray();
+  }
+
   @Test
   public void newTeam_instantiatesCorrectly_true() {
     Team newTeam = new Team("Home");
@@ -11,6 +20,13 @@ public class TeamTest {
   @Test
   public void newTeam_instantiatesCorrectlyWithName() {
     Team newTeam = new Team("Home");
-    assertEquals("Home", newTeam.getName());
+    assertEquals("Home", newTeam.getTeamName());
+  }
+
+  @Test
+  public void newTeam_addedToListOfAllTeams() {
+    Team newTeam = new Team("Home");
+    Team newTeam2 = new Team("Work");
+    assertEquals( newTeam, Team.getAllTeams().get(0));
   }
 }
