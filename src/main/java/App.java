@@ -55,6 +55,8 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    // You need a "get" and a "post" with the "getTeamMembers" method before you can view each member id below. You are trying to reference something that hasnt been created yet.
+
     post("/teams/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Team thisTeam = Team.findTeamIndex(Integer.parseInt(request.queryParams("teamId")));
@@ -68,20 +70,21 @@ public class App {
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-      get("/teams/:id/members", (request, response) -> {
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("members", Team.getTeamMembers());
-        model.put("template", "templates/members.vtl");
-        return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
 
-      get("/members/:id", (request, response) -> {
-        HashMap<String, Object> model = new HashMap<String, Object>();
-        Member thisMember = Member.findMemberIndex(Integer.parseInt(request.params(":id")));
-        model.put("member", thisMember);
-        model.put("template", "templates/member.vtl");
-        return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
+      // get("/teams/:id/members", (request, response) -> {
+      //   Map<String, Object> model = new HashMap<String, Object>();
+      //   model.put("members", Team.getTeamMembers());
+      //   model.put("template", "templates/members.vtl");
+      //   return new ModelAndView(model, layout);
+      // }, new VelocityTemplateEngine());
+      //
+      // get("/members/:id", (request, response) -> {
+      //   HashMap<String, Object> model = new HashMap<String, Object>();
+      //   Member thisMember = Member.findMemberIndex(Integer.parseInt(request.params(":id")));
+      //   model.put("member", thisMember);
+      //   model.put("template", "templates/member.vtl");
+      //   return new ModelAndView(model, layout);
+      // }, new VelocityTemplateEngine());
 
   }
 }
