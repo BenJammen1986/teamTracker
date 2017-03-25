@@ -1,0 +1,14 @@
+<!--newMemberForm.vtl-->
+<h1>Add a member to $team.getTeamName()</h1>
+
+<form action="/teams/$team.getTeamId()/members/$member.getMemberId()" method="post">
+  <input id="teamId" name="teamId" type="hidden" value="$team.getTeamId()">
+
+  <div class="form-group">
+    <label for="memberName">Member Name</label>
+    <input id="memberName" name="memberName" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Member</button>
+</form>
+<!--newMemberForm.vtl-->

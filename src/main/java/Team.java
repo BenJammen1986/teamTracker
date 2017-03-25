@@ -5,7 +5,7 @@ public class Team {
   private String mTeamName;
   private static List<Team> teamInstances = new ArrayList<Team>();
   private int mTeamId;
-  private List<Member> mTeamMembers;
+  private static List<Member> mTeamMembers;
 
 
   public Team(String name) {
@@ -35,7 +35,7 @@ public class Team {
    return teamInstances.get(id - 1);
   }
 
-  public List<Member> getTeamMembers()  {
+  public static List<Member> getTeamMembers()  {
     return mTeamMembers;
   }
 
