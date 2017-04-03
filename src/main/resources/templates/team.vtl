@@ -1,12 +1,12 @@
 <!--team.vtl-->
 <h1>$team.getTeamName() members:</h1>
 
+
 <ul>
   #foreach($member in $team.getTeamMembers())
    <li>$member.getMemberName()</li>
   #end
-</ul>
-
-<a href="/teams/$team.getTeamId()/members/new">Add a new member</a>
-<a href="/teams">All teams</a>
+</ul><br>
+<a href="/teams/$team.getTeamId()/members/new">Add a new member</a><br><br><br>
+<a href="/">Home Page (See All Teams)</a>
 <!--team.vtl-->

@@ -13,6 +13,7 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      model.put("teams", Team.getAllTeams());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -23,14 +24,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/teams", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      model.put("teams", Team.getAllTeams());
-      model.put("template", "templates/teams.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
-    post("/teams", (request, response) -> {
+    post("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
       Team newTeam = new Team(name);
@@ -38,6 +32,14 @@ public class App {
       model.put("template", "templates/teams.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    // NOTE: No longer necessary- all teams viewable from the homepage.
+    // get("/teams", (request, response) -> {
+    //   Map<String, Object> model = new HashMap<String, Object>();
+    //   model.put("teams", Team.getAllTeams());
+    //   model.put("template", "templates/teams.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
     get("/teams/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
