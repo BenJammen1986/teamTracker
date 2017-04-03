@@ -47,6 +47,19 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    post("/teams/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Team thisTeam = Team.findTeamIndex(Integer.parseInt(request.params(":id")));
+      String memberName = request.queryParams("memberName");
+      Member newMember = new Member(memberName);
+      thisTeam.addNewMember(newMember);
+      model.put("team", thisTeam);
+      model.put("members", thisTeam.getTeamMembers());
+      model.put("template", "templates/team.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
     get("/teams/:id/members/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Team thisTeam = Team.findTeamIndex(Integer.parseInt(request.params(":id")));
@@ -54,8 +67,6 @@ public class App {
       model.put("template", "templates/newMemberForm.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
-    // You need a "get" and a "post" with the "getTeamMembers" method before you can view each member id below. You are trying to reference something that hasnt been created yet.
 
     post("/teams/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();

@@ -1,10 +1,8 @@
 <!--members.vtl-->
 <h1>Team Member list!</h1>
-
-#if ($members)
   <ul>
-    #foreach ($member in $members)
-      <li><a href="/members/$member.getMemberId()">$member.getMemberName()</a></li>
+    #foreach ($member in $team)
+      <li>$member.getMemberName()</li>
     #end
   </ul>
 #else

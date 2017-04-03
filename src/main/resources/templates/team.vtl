@@ -2,8 +2,8 @@
 <h1>$team.getTeamName() members:</h1>
 
 <ul>
-  #foreach($member in $team.getAllMembers())
-   <li>$member.getMember()</li>
+  #foreach($member in $team.getTeamMembers())
+   <li>$member.getMemberName()</li>
   #end
 </ul>
 
